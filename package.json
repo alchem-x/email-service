@@ -1,0 +1,36 @@
+{
+  "name": "email-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "run": "./run.sh",
+    "start": "node server/main.js",
+    "build": "webpack --mode=production",
+    "format": "prettier --write --cache ."
+  },
+  "imports": {
+    "#server/*": "./server/*",
+    "#web/*": "./web/*",
+    "#dist/*": "./dist/*"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@vue/babel-plugin-jsx": "^1.4.0",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "express": "^5.1.0",
+    "less-loader": "^12.2.0",
+    "lodash-es": "^4.17.21",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.5.3",
+    "vue": "^3.5.13",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1"
+  }
+}
