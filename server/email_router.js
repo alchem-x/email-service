@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import Router from '@koa/router'
 import { createSSRApp } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { renderToHTML } from '#server/render_html.js'
@@ -7,14 +7,13 @@ import { renderToHTML } from '#server/render_html.js'
 const distIndex = await import('#dist/index.js')
 
 export function createEmailRouter() {
-  const router = Router()
+  const router = new Router()
 
-  router.get('/api/email/hello', async (req, res) => {
+  router.get('/api/email/hello', async (ctx) => {
     const app = createSSRApp(distIndex.HelloEmail)
     const s = await renderToString(app)
-    const html = renderToHTML(s)
-    res.send(html)
+    ctx.body = renderToHTML(s)
   })
 
-  return router
+  return router.routes()
 }

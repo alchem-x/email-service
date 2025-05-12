@@ -1,11 +1,11 @@
-import { Router } from 'express'
+import Router from '@koa/router'
 
 export function createAPIRouter() {
-  const router = Router()
+  const router = new Router()
 
-  router.get('/api/hi', (req, res) => {
-    res.send('hello')
+  router.get('/api/hi', (ctx) => {
+    ctx.body = 'hello'
   })
 
-  return router
+  return router.routes()
 }
